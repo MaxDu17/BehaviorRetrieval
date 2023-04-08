@@ -1,0 +1,111 @@
+<?xml version="0.0" ?>
+<robot name="bowl.urdf">
+
+  <material name="yellow">
+    <color rgba="1 1 0.4 1"/>
+  </material>
+  <material name="red">
+    <color rgba="1 0 0 1"/>
+  </material>
+  <material name="blue">
+    <color rgba=".17 .20 .38 1"/>
+  </material>
+  <material name="teal">
+    <color rgba="0 .5 .5 1"/>
+  </material>
+  <material name="orange">
+    <color rgba=".93 .6 .23 1"/>
+  </material>
+
+  <link name="world"/>
+
+  <link name="base">
+    <contact>
+      <rolling_friction value="10.0"/>
+      <lateral_friction value="10.0"/>
+      <spinning_friction value="10.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+       <mass value="0.1"/>
+       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 -0.2"/>
+      <geometry>
+        <box size="1.4 1.2 .1"/>
+      </geometry>
+    </visual>
+    <visual>
+      <!-- right -->
+      <origin rpy="0 0 0" xyz="0 -.6 0"/>
+      <geometry>
+        <box size="1.4 .05 0.4"/>
+      </geometry>
+    </visual>
+    <visual>
+      <!-- left -->
+      <origin rpy="0 0 0" xyz="0 .6 0"/>
+      <geometry>
+        <box size="1.4 .05 0.4"/>
+      </geometry>
+    </visual>
+    <visual>
+      <!-- front -->
+      <origin rpy="0 0 0" xyz=".7 0 0"/>
+      <geometry>
+        <box size=".05 1.2 0.4"/>
+      </geometry>
+    </visual>
+    <visual>
+      <!-- back -->
+      <origin rpy="0 0 0" xyz="-.7 0 0"/>
+      <geometry>
+        <box size=".05 1.2 0.4"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <!--Bottom --> 
+      <origin rpy="0 0 0" xyz="0 0 -.2"/>
+      <geometry>
+        <box size="1.4 1.2 .1"/>
+      </geometry>
+    </collision>
+    <collision>
+      <!-- right -->
+      <origin rpy="0 0 0" xyz="0 -.6 0"/>
+      <geometry>
+        <box size="1.4 .05 0.4"/>
+      </geometry>
+    </collision>
+    <collision>
+      <!-- left -->
+      <origin rpy="0 0 0" xyz="0 .6 0"/>
+      <geometry>
+        <box size="1.4 .05 0.4"/>
+      </geometry>
+    </collision>
+    <collision>
+      <!-- front -->
+      <origin rpy="0 0 0" xyz=".7 0 0"/>
+      <geometry>
+        <box size=".05 1.2 0.4"/>
+      </geometry>
+    </collision>
+    <collision>
+      <!-- back -->
+      <origin rpy="0 0 0" xyz="-.7 0 0"/>
+      <geometry>
+        <box size=".05 1.2 0.4"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="world"/>
+    <child link="base"/>
+  </joint>
+
+</robot>
+

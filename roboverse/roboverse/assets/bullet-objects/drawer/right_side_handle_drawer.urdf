@@ -1,0 +1,294 @@
+<?xml version="0.0" ?>
+<robot name="bowl.urdf">
+
+  <material name="yellow">
+    <color rgba="1 1 0.4 1"/>
+  </material>
+  <material name="red">
+    <color rgba="1 0 0 1"/>
+  </material>
+  <material name="blue">
+    <color rgba=".17 .20 .38 1"/>
+  </material>
+  <material name="teal">
+    <color rgba="0 .5 .5 1"/>
+  </material>
+  <material name="orange">
+    <color rgba=".93 .6 .23 1"/>
+  </material>
+
+  <link name="world"/>
+
+  <link name="base">
+    <contact>
+      <rolling_friction value="10.0"/>
+      <lateral_friction value="10.0"/>
+      <spinning_friction value="10.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+       <mass value="0.1"/>
+       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 -0.2"/>
+      <geometry>
+        <box size="1.4 1.2 .1"/>
+      </geometry>
+    </visual>
+    <visual>
+      <!-- right -->
+      <origin rpy="0 0 0" xyz="0 -.6 0"/>
+      <geometry>
+        <box size="1.4 .05 0.4"/>
+      </geometry>
+    </visual>
+    <visual>
+      <!-- left -->
+      <origin rpy="0 0 0" xyz="0 .6 0"/>
+      <geometry>
+        <box size="1.4 .05 0.4"/>
+      </geometry>
+    </visual>
+    <visual>
+      <!-- front -->
+      <origin rpy="0 0 0" xyz=".7 0 0"/>
+      <geometry>
+        <box size=".05 1.2 0.4"/>
+      </geometry>
+    </visual>
+    <visual>
+      <!-- back -->
+      <origin rpy="0 0 0" xyz="-.7 0 0"/>
+      <geometry>
+        <box size=".05 1.2 0.4"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <!--Bottom --> 
+      <origin rpy="0 0 0" xyz="0 0 -.2"/>
+      <geometry>
+        <box size="1.4 1.2 .1"/>
+      </geometry>
+    </collision>
+    <collision>
+      <!-- right -->
+      <origin rpy="0 0 0" xyz="0 -.6 0"/>
+      <geometry>
+        <box size="1.4 .05 0.4"/>
+      </geometry>
+    </collision>
+    <collision>
+      <!-- left -->
+      <origin rpy="0 0 0" xyz="0 .6 0"/>
+      <geometry>
+        <box size="1.4 .05 0.4"/>
+      </geometry>
+    </collision>
+    <collision>
+      <!-- front -->
+      <origin rpy="0 0 0" xyz=".7 0 0"/>
+      <geometry>
+        <box size=".05 1.2 0.4"/>
+      </geometry>
+    </collision>
+    <collision>
+      <!-- back -->
+      <origin rpy="0 0 0" xyz="-.7 0 0"/>
+      <geometry>
+        <box size=".05 1.2 0.4"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="handle_r">
+    <contact>
+      <rolling_friction value="1000.0"/>
+      <lateral_friction value="1000.0"/>
+      <!-- lateral_friction was key to not making the gripper slide on the handle--> 
+      <spinning_friction value="1000.0"/>
+      <contact_cfm value="0.0"/>
+      <contact_erp value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 1.57 0" xyz="0 0 0"/>
+      <mass value=".1"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 1.57 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.08" length="0.7"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+    <collision>
+      <origin rpy="0 1.57 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.08" length="0.7"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="handle_plate_far">
+    <contact>
+      <rolling_friction value="1000.0"/>
+      <lateral_friction value="1000.0"/>
+      <spinning_friction value="1000.0"/>
+      <contact_cfm value="0.0"/>
+      <contact_erp value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 1.57 0" xyz="0 0 0"/>
+      <mass value=".1"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size=".05 .6 .18"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size=".05 .6 .18"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="handle_plate_near">
+    <contact>
+      <rolling_friction value="1000.0"/>
+      <lateral_friction value="1000.0"/>
+      <spinning_friction value="1000.0"/>
+      <contact_cfm value="0.0"/>
+      <contact_erp value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 1.57 0" xyz="0 0 0"/>
+      <mass value=".1"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size=".05 .6 .18"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size=".05 .6 .18"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="frame">
+    <contact>
+      <lateral_friction value="0.5"/>
+      <rolling_friction value="0.0"/>
+      <contact_cfm value="0.0"/>
+      <contact_erp value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+       <mass value=".1"/>
+       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <!--Top-->
+      <origin rpy="0 0 0" xyz="0 0 .3"/>
+      <geometry>
+        <box size="1.5 1.3 .1"/>
+      </geometry>
+    </visual>
+    <visual>
+      <!--Right-->
+      <origin rpy="0 0 0" xyz="0 .65 0"/>
+      <geometry>
+        <box size="1.5 .05 .6"/>
+      </geometry>
+    </visual>
+    <visual>
+      <!--Front-->
+      <origin rpy="0 0 0" xyz=".75 0 0"/>
+      <geometry>
+        <box size=".05 1.3 .6"/>
+      </geometry>
+    </visual>
+    <visual>
+      <!--Back-->
+      <origin rpy="0 0 0" xyz="-.75 0 0"/>
+      <geometry>
+        <box size=".05 1.3 .6"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <!--Top-->
+      <origin rpy="0 0 0" xyz="0 0 .3"/>
+      <geometry>
+        <box size="1.5 1.3 .1"/>
+      </geometry>
+    </collision>
+    <collision>
+      <!--Right-->
+      <origin rpy="0 0 0" xyz="0 .65 0"/>
+      <geometry>
+        <box size="1.5 .05 .6"/>
+      </geometry>
+    </collision>
+    <collision>
+      <!--Front-->
+      <origin rpy="0 0 0" xyz=".75 0 0"/>
+      <geometry>
+        <box size=".05 1.3 .6"/>
+      </geometry>
+    </collision>
+    <collision>
+      <!--Back-->
+      <origin rpy="0 0 0" xyz="-.75 0 0"/>
+      <geometry>
+        <box size=".05 1.3 .6"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="frame_joint" type="fixed">
+    <parent link="world"/>
+    <child link="frame"/>
+  </joint>
+
+  <joint name="base_frame_joint" type="prismatic">
+    <origin rpy="0 0 0" xyz="0 0 -.1"/>
+    <parent link="frame"/>
+    <child link="base"/>
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <limit effort="100" lower="-1.25" upper="0" velocity="100"/>
+    <dynamics damping="0.0" friction=".01"/>
+  </joint>
+
+  <joint name="handle_plate_far_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.9 0.1"/>
+    <parent link="base"/>
+    <child link="handle_plate_far"/>
+  </joint>
+
+  <joint name="handle_plate_near_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.65 -0.9 0.1"/>
+    <parent link="base"/>
+    <child link="handle_plate_near"/>
+  </joint>
+
+  <joint name="handle_r_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.325 -1.1 0.1"/>
+    <parent link="base"/>
+    <child link="handle_r"/>
+  </joint>
+
+</robot>
+

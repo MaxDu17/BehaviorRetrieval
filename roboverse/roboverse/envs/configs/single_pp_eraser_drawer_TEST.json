@@ -1,0 +1,17 @@
+{
+    "accept_trajectory_key": "table_clean",
+    "observation_img_dim": 84,
+    "observation_mode": "pixels_eye_hand",
+    "control_mode" : "discrete_gripper",
+    "num_objects" : 1,
+    "object_names" : ["eraser", "shed", "pepsi_bottle", "gatorade"],
+    "random_shuffle_object" : false,
+    "random_shuffle_target" : false,
+    "object_targets" : ["drawer_inside", "tray"],
+    "original_object_positions" : [
+    [0.43620103, 0.12358467, -0.35],
+    [0.55123888, -0.17699107, -0.35],
+    [0.42755662, -0.13711447, -0.35],
+    [0.39866522, 0.18929185, -0.35]],
+    "desired_config" : {"eraser" : "drawer_inside"}
+    }

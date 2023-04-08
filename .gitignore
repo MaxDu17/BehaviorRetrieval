@@ -1,0 +1,16 @@
+.ipynb_checkpoints/
+clusterlogs/
+unused_runs/
+tb/
+datasets/
+expert_models/
+events.out*
+.idea
+*.gif
+*.pkl
+*.pth
+*.pt
+*.png
+*.hdf5
+*.mp4
+log.txt

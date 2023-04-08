@@ -1,0 +1,21 @@
+<robot name="eraser">
+  <link name="eraser_base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.2"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <visual>
+      <origin rpy="1.571 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="eraser.obj" scale="0.005 0.01 0.005"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.571 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="eraser.obj" scale="0.005 0.01 0.005"/>
+      </geometry>
+    </collision>
+  </link>
+</robot>

@@ -1,0 +1,23 @@
+{
+    "weighting": {
+        "weighted": true,
+        "threshold": 0.8,
+        "visualize_weights": false,
+        "epsilon": 0.01,
+        "intervention_history": 1000,
+        "intervention_history_skip": 1,
+        "reweight_frq": 1
+    },
+    "corrections": {
+        "batch_type": "ramped",
+        "train_steps": 1000,
+        "train_limit": "step"
+    },
+    "load_optim_params": true,
+    "horizon": 400,
+    "eval_episodes": 20,
+    "eval_frequency": 1,
+    "rollout_episodes": 100,
+    "burn_in_episodes": 10,
+    "corrections_per_train": 1
+}

@@ -1,0 +1,22 @@
+{
+  "observation_img_dim": 84,
+  "observation_mode": "pixels_eye_hand",
+  "control_mode": "discrete_gripper",
+  "num_objects": 2,
+  "object_names": [
+    "eraser",
+    "shed",
+    "pepsi_bottle",
+    "gatorade"
+  ],
+  "random_shuffle_object": false,
+  "random_shuffle_target": false,
+  "object_targets": [
+    "tray",
+    "container"
+  ],
+  "desired_config": {
+    "eraser": "tray",
+    "shed": "container"
+  }
+}

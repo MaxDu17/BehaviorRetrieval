@@ -1,0 +1,12 @@
+{
+     "accept_trajectory_key": "table_clean",
+     "observation_img_dim": 84,
+     "observation_mode": "pixels_eye_hand",
+     "control_mode" : "discrete_gripper",
+     "num_objects" : 1,
+     "object_names" : ["eraser", "shed", "pepsi_bottle", "gatorade"],
+     "random_shuffle_object" : true,
+     "random_shuffle_target" : true,
+     "object_targets" : ["tray", "container"],
+     "desired_config" : {"eraser" : "tray"}
+}

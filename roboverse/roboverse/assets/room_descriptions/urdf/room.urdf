@@ -1,0 +1,320 @@
+<?xml version="1.0"?>
+<robot name="room">
+  <material name="White">
+    <color rgba="0.9 0.9 0.9 1"/>
+  </material>
+  <material name="Blue">
+    <color rgba="0 0 1 1"/>
+  </material>
+  <material name="Red">
+    <color rgba="1 0 0 1"/>
+  </material>
+  <material name="Green">
+    <color rgba="0.1 0.8 0.1 1"/>
+  </material>
+  <material name="Gray">
+    <color rgba="0.6 0.6 0.6 1"/>
+  </material>
+  <material name="Black">
+    <color rgba="0.1 0.1 0.1 1"/>
+  </material>
+     
+  <link name="room_base">
+
+    <contact>
+      <lateral_friction value="0.5"/>
+      <rolling_friction value="0.0"/>
+      <contact_cfm value="0.0"/>
+      <contact_erp value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="Red"/>
+    </visual>
+  </link>
+  
+    
+    
+  <joint name="j_box_shelf_1" type="fixed">
+    <parent link="room_base"/>
+    <child link="l_box_shelf_1"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+        
+  <link name="l_box_shelf_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="2.9 -0.9 1.35" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.8 0.04"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="2.9 -0.9 1.35" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.8 0.04"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="j_box_shelf_2" type="fixed">
+    <parent link="room_base"/>
+    <child link="l_box_shelf_2"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+        
+  <link name="l_box_shelf_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="2.9 -0.9 1.7" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.8 0.04"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="2.9 -0.9 1.7" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.8 0.04"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="j_box_shelf_3" type="fixed">
+    <parent link="room_base"/>
+    <child link="l_box_shelf_3"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+        
+  <link name="l_box_shelf_3">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="2.9 0.4 1.7" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.8 0.04"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="2.9 0.4 1.7" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.8 0.04"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="j_box_shelf_4" type="fixed">
+    <parent link="room_base"/>
+    <child link="l_box_shelf_4"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+        
+  <link name="l_box_shelf_4">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="2.9 0.4 1.35" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.8 0.04"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="2.9 0.4 1.35" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.8 0.04"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="j_books" type="fixed">
+    <parent link="room_base"/>
+    <child link="books_base"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+        
+  <link name="books_base">
+      <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="2.9 -1.03 1.35" rpy="0 0 1.570796"/>
+      <geometry>
+        <mesh filename="../meshes/obj/books.obj" scale="0.012 0.012 0.012"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="2.9 -1.03 1.35" rpy="0 0 1.570796"/>
+      <geometry>
+        <mesh filename="../meshes/obj/books.obj" scale="0.012 0.012 0.012"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="j_books_2" type="fixed">
+    <parent link="room_base"/>
+    <child link="books_2_base"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+        
+  <link name="books_2_base">
+      <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="2.9 -0.83 1.35" rpy="0 0 1.570796"/>
+      <geometry>
+        <!-- <mesh filename="../meshes/vieux_livres_sized.dae"/> -->
+        <mesh filename="../meshes/obj/books.obj" scale="0.012 0.012 0.012"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="2.9 -0.83 1.35" rpy="0 0 1.570796"/>
+      <geometry>
+        <mesh filename="../meshes/obj/books.obj" scale="0.012 0.012 0.012"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+
+  <joint name="clock" type="fixed">
+    <parent link="room_base"/>
+    <child link="clock"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+        
+  <link name="clock">
+      <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="2.9 -1.9 1.9" rpy="1.570796 0 3.14159"/>
+      <geometry>
+        <mesh filename="../meshes/obj/clock.obj" scale="0.45 0.45 0.5"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="2.9 -1.9 1.9" rpy="1.570796 0 3.14159"/>
+      <geometry>
+        <mesh filename="../meshes/obj/clock.obj" scale="0.45 0.45 0.5"/>
+      </geometry>
+    </collision>
+  </link>
+  
+
+  
+  <joint name="j_carpet" type="fixed">
+    <parent link="room_base"/>
+    <child link="l_carpet"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+        
+  <link name="l_carpet">
+      <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.5" rpy="1.57 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/obj/carpet.obj"/>
+      </geometry>
+      <!-- <material name="Green"/> -->
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.5" rpy="1.57 0 0"/>
+      <geometry>
+        <mesh filename="../meshes/obj/carpet.obj"/>
+      </geometry>
+    </collision>
+  </link>
+
+ <!-- on the right -->
+  <joint name="j_carpet_wall_one" type="fixed">
+    <parent link="room_base"/>
+    <child link="l_carpet_wall_one"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+        
+  <link name="l_carpet_wall_one">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 -3 1.25" rpy="0 3.14 0"/>
+      <geometry>
+        <mesh filename="../meshes/obj/wall.obj" scale="1 1 1.5"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -3 1.25" rpy="0 3.14 0"/>
+      <geometry>
+        <mesh filename="../meshes/obj/wall.obj" scale="1 1 1.5"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="j_carpet_wall_two" type="fixed">
+    <parent link="room_base"/>
+    <child link="l_carpet_wall_two"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+        
+  <link name="l_carpet_wall_two">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="3 0 1.25" rpy="0 0 1.57"/>
+      <geometry>
+        <mesh filename="../meshes/obj/wall.obj" scale="1 1 1.5"/>
+      </geometry>
+      <!-- <material name="Blue"/> -->
+    </visual>
+    <collision>
+      <origin xyz="3 0 1.25" rpy="0 0 1.57"/>
+      <geometry>
+        <mesh filename="../meshes/obj/wall.obj" scale="1 1 1.5"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+
+
+
+</robot>

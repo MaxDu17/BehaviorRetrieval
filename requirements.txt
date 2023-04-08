@@ -1,0 +1,14 @@
+gym==0.12.1
+pybullet==2.7.9
+opencv-python==4.4.0.46
+tqdm==4.42.1
+h5py
+numpy>=1.13.3
+psutil
+tqdm
+termcolor
+tensorboard
+tensorboardX
+imageio
+imageio-ffmpeg
+egl_probe>=1.0.1
