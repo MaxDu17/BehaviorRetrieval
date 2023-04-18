@@ -2,7 +2,7 @@
     "algo_name": "bc",
     "experiment": {
         "name": "bc_can_longer",
-        "validate": true,
+        "validate": false,
         "logging": {
             "terminal_output_to_txt": true,
             "log_tb": true
@@ -28,14 +28,14 @@
             "enabled": true,
             "n": 10,
             "horizon": 400,
-            "rate": 50,
+            "rate": 200,
             "warmstart": 0,
             "terminate_on_success": true
         }
     },
     "train": {
         "data": null,
-        "output_dir": "/iris/u/maxjdu/Repos/SmartInterventions/bc_trained_models",
+        "output_dir": "/iris/u/maxjdu/Repos/BehaviorRetrieval/bc_trained_models",
         "num_data_workers": 0,
         "hdf5_cache_mode": "low_dim",
         "hdf5_use_swmr": true,

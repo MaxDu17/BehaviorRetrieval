@@ -15,7 +15,7 @@ import gym
 
 import robomimic.envs.env_base as EB
 import robomimic.utils.obs_utils as ObsUtils
-from iris_robots.robot_env import RobotEnv
+# from iris_robots.robot_env import RobotEnv #import your own robot environment
 
 
 class EnvGym(EB.EnvBase):

@@ -5,10 +5,12 @@ tqdm==4.42.1
 h5py
 numpy>=1.13.3
 psutil
+ipdb
 tqdm
 termcolor
 tensorboard
 tensorboardX
 imageio
 imageio-ffmpeg
+matplotlib
 egl_probe>=1.0.1

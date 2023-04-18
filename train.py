@@ -85,27 +85,8 @@ def train(config, device, train_size):
     # load basic metadata from training file
     print("\n============= Loaded Environment Metadata =============")
 
-    # env_meta = FileUtils.get_env_metadata_from_dataset(dataset_path=config.train.data)
-    print("TEMPOARY REPLACEMENT")
-    env_meta = {
-        "env_name": "online",
-        "type": EB.EnvType.GYM_TYPE,
-        "env_kwargs": {
-            "robot_model": 'wx200',
-            "ip_address": '127.0.0.1',
-            "port": 9136,
-            # "use_image_obs": False,
-            "control_hz": 3,
-            "use_local_cameras": False,
-            "use_robot_cameras": True,
-            "camera_types": ["cv2"],
-            "reset_pos": None,
-            "control_mode": "POS",
-            "xlims": [0.12, 0.4],
-            "ylims": [-0.23, 0.23],
-            "zlims": [0, 0.3]
-        }
-    }
+    env_meta = FileUtils.get_env_metadata_from_dataset(dataset_path=config.train.data)
+
 
     shape_meta = FileUtils.get_shape_metadata_from_dataset(
         dataset_path=config.train.data,
@@ -426,8 +407,8 @@ if __name__ == "__main__":
         help="(optional) path to a config json that will be used to override the default settings. \
             If omitted, default settings are used. This is the preferred way to run experiments.",
     )
-    
-    # size of the training data 
+
+    # size of the training data
     parser.add_argument(
         "--train_size",
         type=int,

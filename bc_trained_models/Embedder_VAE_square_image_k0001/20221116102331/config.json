@@ -1,7 +1,7 @@
 {
-    "algo_name": "bc",
+    "algo_name": "vae_embedding",
     "experiment": {
-        "name": "bc_can_longer",
+        "name": "Embedder_VAE_square_image_k0001",
         "validate": true,
         "logging": {
             "terminal_output_to_txt": true,
@@ -10,14 +10,14 @@
         "save": {
             "enabled": true,
             "every_n_seconds": null,
-            "every_n_epochs": 20,
+            "every_n_epochs": 50,
             "epochs": [],
             "on_best_validation": false,
             "on_best_rollout_return": false,
             "on_best_rollout_success_rate": true
         },
         "epoch_every_n_steps": 500,
-        "validation_epoch_every_n_steps": 20,
+        "validation_epoch_every_n_steps": 10,
         "env": null,
         "additional_envs": null,
         "render": false,
@@ -27,38 +27,57 @@
         "rollout": {
             "enabled": true,
             "n": 10,
-            "horizon": 100,
+            "horizon": 400,
             "rate": 50,
             "warmstart": 0,
             "terminate_on_success": true
         }
     },
     "train": {
-        "data": null,
-        "output_dir": "/iris/u/maxjdu/BehaviorRetrieval/bc_trained_models",
-        "num_data_workers": 0,
+        "data": "datasets/square_machine_policy/square_400_paired.hdf5",
+        "output_dir": "/iris/u/maxjdu/Repos/SmartInterventions/bc_trained_models",
+        "num_data_workers": 4,
         "hdf5_cache_mode": "low_dim",
         "hdf5_use_swmr": true,
         "hdf5_normalize_obs": false,
         "hdf5_filter_key": null,
-        "seq_length": 10,
+        "seq_length": 1,
         "dataset_keys": [
             "actions",
             "rewards",
             "dones"
         ],
-        "goal_mode": "last",
+        "goal_mode": null,
         "cuda": true,
-        "batch_size": 16,
-        "num_epochs": 1000,
-        "seed": 2
+        "batch_size": 50,
+        "num_epochs": 2000,
+        "seed": 1,
+        "radius": null,
+        "actions": true,
+        "mode": "classifier",
+        "same_traj": null,
+        "p": 0.1
     },
     "algo": {
+        "l2": 0,
+        "embedding_size": 64,
+        "action_size": 7,
+        "split_trunk_at": 0,
         "optim_params": {
-            "policy": {
+            "VAE": {
                 "learning_rate": {
-                    "initial": 0.0001,
-                    "decay_factor": 0.1,
+                    "initial": 0.001,
+                    "decay_factor": 0,
+                    "epoch_schedule": []
+                },
+                "regularization": {
+                    "L2": 0.0
+                }
+            },
+            "future": {
+                "learning_rate": {
+                    "initial": 0.001,
+                    "decay_factor": 0,
                     "epoch_schedule": []
                 },
                 "regularization": {
@@ -66,12 +85,24 @@
                 }
             }
         },
-        "loss": {
-            "l2_weight": 1.0,
-            "l1_weight": 0.0,
-            "cos_weight": 0.0
+        "pretrained_weights": {
+            "obs": {
+                "agentview_image": null,
+                "robot0_eye_in_hand_image": null
+            }
+        },
+        "lock_encoder": {
+            "obs": {
+                "agentview_image": false,
+                "robot0_eye_in_hand_image": false
+            }
         },
         "actor_layer_dims": [
+            64,
+            128,
+            128,
+            128,
+            64
         ],
         "gaussian": {
             "enabled": false,
@@ -82,19 +113,19 @@
             "low_noise_eval": true
         },
         "gmm": {
-            "enabled": true,
+            "enabled": false,
             "num_modes": 5,
             "min_std": 0.0001,
             "std_activation": "softplus",
             "low_noise_eval": true
         },
         "vae": {
-            "enabled": false,
-            "latent_dim": 14,
+            "enabled": true,
+            "latent_dim": 128,
             "latent_clip": null,
-            "kl_weight": 1.0,
+            "kl_weight": 0.0001,
             "decoder": {
-                "is_conditioned": true,
+                "is_conditioned": false,
                 "reconstruction_sum_across_elements": false
             },
             "prior": {
@@ -124,7 +155,7 @@
             ]
         },
         "rnn": {
-            "enabled": true,
+            "enabled": false,
             "horizon": 10,
             "hidden_dim": 400,
             "rnn_type": "LSTM",
@@ -138,15 +169,16 @@
     "observation": {
         "modalities": {
             "obs": {
-                "low_dim": ["robot"
+                "low_dim": [],
+                "rgb": [
+                    "agentview_image"
                 ],
-                "rgb": ["agentview_image", "robot0_eye_in_hand_image"],
                 "depth": [],
                 "scan": []
             },
             "goal": {
-                "low_dim": ["robot"],
-                "rgb": ["agentview_image", "robot0_eye_in_hand_image"],
+                "low_dim": [],
+                "rgb": [],
                 "depth": [],
                 "scan": []
             }
@@ -161,7 +193,7 @@
             "rgb": {
                 "core_class": "VisualCore",
                 "core_kwargs": {
-                    "feature_dimension": 64,
+                    "feature_dimension": 128,
                     "flatten": true,
                     "backbone_class": "ResNet18Conv",
                     "backbone_kwargs": {

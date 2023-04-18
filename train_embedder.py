@@ -175,15 +175,18 @@ def train(config, device):
         # Evaluate the model on validation set
         if config.experiment.validate:
             with torch.no_grad():
+                # use if you are training a classifier
                 # step_log, predictions = TrainUtils.run_epoch(model=model, data_loader=valid_loader, epoch=epoch, validate=True,
                 #                                 num_steps=valid_num_steps, return_predictions = True)
                 #
-                step_log, matrix = TrainUtils.run_epoch(model=model, data_loader=valid_loader, epoch=epoch,
-                                                             validate=True,
-                                                             num_steps=valid_num_steps, return_matrix = True)
+                # use if you are training contrastive
                 # step_log, matrix = TrainUtils.run_epoch(model=model, data_loader=valid_loader, epoch=epoch,
-                #                                         validate=True,
-                #                                         num_steps=valid_num_steps, return_reconstruction = True)
+                #                                              validate=True,
+                #                                              num_steps=valid_num_steps, return_matrix = True)
+                # use if you are training VAE 
+                step_log, matrix = TrainUtils.run_epoch(model=model, data_loader=valid_loader, epoch=epoch,
+                                                        validate=True,
+                                                        num_steps=valid_num_steps, return_reconstruction = True)
             matrix = np.clip(matrix, 0, 1)
             for k, v in step_log.items():
                 if k.startswith("Time_"):

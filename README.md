@@ -1,11 +1,12 @@
 # Behavior Retrieval
-This repository contains the code for BehaviorRetrieval, a submission to RSS 2023. 
+This repository contains the code for BehaviorRetrieval, a few-shot imitation learning method that queries unlabeled datasets. 
 # Installing
-1. Install torch + torchvision 
-2. Install [robosuite](https://robosuite.ai/) 
-3. Install dependencies in `requirements.txt` (covers robomimic and roboverse dependencies)
-4. Install robomimic by using `pip install -e .` inside the `robomimic` folder
-5. (If you want to run Office) Install roboverse by using `pip install -e.` inside the `roboverse` folder
+1. Install python 3.7 
+2. Install torch + torchvision 
+3. Install [robosuite](https://robosuite.ai/)  (`pip install robosuite` or install from source). You also need to install `mujoco_py`. 
+4. Install dependencies in `requirements.txt` (covers robomimic and roboverse dependencies)
+5. Install robomimic by using `pip install -e .` inside the `robomimic` folder
+6. (If you want to run Office) Install roboverse by using `pip install -e.` inside the `roboverse` folder
 
 # Running 
 ## Configurations

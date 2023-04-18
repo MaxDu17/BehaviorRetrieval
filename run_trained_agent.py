@@ -77,7 +77,6 @@ from robomimic.config import config_factory
 
 import MachinePolicy
 
-
 def rollout(policy, env, horizon, render=False, video_writer=None, video_skip=5, return_obs=False, camera_names=None,
             machine_policy = False, real_robot = False, goal = None):
     """
@@ -356,10 +355,13 @@ def run_trained_agent(args):
     avg_rollout_stats = { k : np.mean(rollout_stats[k]) for k in rollout_stats }
     avg_rollout_stats["Num_Success"] = np.sum(rollout_stats["Success_Rate"])
     print("Average Rollout Stats")
-    # save to csv so we can extract numbers
-    log_file = args.agent[ : args.agent.find("model_epoch") - 1]
-    with open(f"{log_file}/success_rate_{args.checkpoint}.txt", "w") as f:
-        f.write(str(avg_rollout_stats["Success_Rate"]))
+    try:
+        # save to csv so we can extract numbers
+        log_file = args.agent[ : args.agent.find("model_epoch") - 1]
+        with open(f"{log_file}/success_rate_{args.checkpoint}.txt", "w") as f:
+            f.write(str(avg_rollout_stats["Success_Rate"]))
+    except:
+        print(str(avg_rollout_stats["Success_Rate"])) # just in case, we always get the number output 
 
     if write_dataset:
         # global metadata

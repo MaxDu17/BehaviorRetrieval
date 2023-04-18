@@ -18,7 +18,7 @@
 # for GOOD demos
 #python run_trained_agent.py \
 #  --agent SquarePeg \
-#  --mode rollout  --eval_path datasets/square_machine_policy/ \
+#  --eval_path datasets/square_machine_policy/ \
 #  --reference_data datasets/square/ph/image.hdf5 \
 #  --config configs/image_collection.json \
 #  --machine_oracle --success_only --dataset_obs \
@@ -28,7 +28,7 @@
 # for MIXED demos
 #python run_trained_agent.py \
 #  --agent SquarePeg \
-#  --mode rollout  --eval_path datasets/square_machine_policy/ \
+#   --eval_path datasets/square_machine_policy/ \
 #  --reference_data datasets/square/ph/image.hdf5 \
 #  --config configs/image_collection.json \
 #  --machine_oracle --success_only --dataset_obs \
@@ -43,6 +43,4 @@
 #  --checkpoint reset_$checkpoint --mode rollout  --dataset_path datasets/can/paired/image_10_good.hdf5\
 #  --eval_path datasets/can/paired --dataset_obs\
 #  --n_rollouts 10 --horizon 400 --success_only --seed 11
-
-
 

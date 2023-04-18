@@ -346,4 +346,4 @@ class SquareAssemblyPolicy(MachinePolicy):
         else:
             return action
 
-MACHINE_DICT = {"SquarePeg": SquareAssemblyPolicy, "ToolHang": ToolHangMachinePolicy, "OfficePP" : OfficePolicy}
+MACHINE_DICT = {"SquarePeg": SquareAssemblyPolicy, "OfficePP" : OfficePolicy}
