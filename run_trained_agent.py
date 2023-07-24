@@ -124,7 +124,7 @@ def rollout(policy, env, horizon, render=False, video_writer=None, video_skip=5,
             # print("\t", step_i)
             # get action from policy
             if machine_policy:
-                clean_act, act = policy(ob = (obs, env.get_priv_info()), noisy_mode = True)
+                clean_act, act = policy(ob = (obs, 0), noisy_mode = True) # the 0 used to be a different and defunct feature
             else:
                 if goal is not None:
                     act = policy(ob = obs, goal = goal)
